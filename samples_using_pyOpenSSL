@@ -1,0 +1,10 @@
+>>> from OpenSSL import crypto as c
+>>> cert = c.load_certificate(c.FILETYPE_PEM, file('server.pem').read())
+>>> cert.get_extension_count()
+4L
+>>> ext = cert.get_extension(0)
+>>> ext.get_short_name()
+'basicConstraints'
+>>> ext.get_data()
+'0\x00'
+>>> 
